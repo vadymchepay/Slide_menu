@@ -1,0 +1,143 @@
+@import url(https://fonts.googleapis.com/css?family=PT+Sans:400);
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    list-style: none;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 400;
+    white-space: collapse;
+    font-family: 'PT Sans';
+    font-size: 20px;
+}
+
+body {
+    overflow: hidden;
+    background-color: #2F2933;
+}
+
+h1 {
+    color: #01A2A6;
+    font-size: 25px;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+.main {
+    width: 100%;
+    background-color: #2F2933;
+    height: 100%;
+    .main_content {
+        width: 400px;
+        display: block;
+        padding: 0px 0px 0px 50px;
+        transition: .5s cubic-bezier(.75, .02, .33, 1);
+    }
+    .button {
+        padding: 50px 0px 0px 50px;
+        transition: .5s cubic-bezier(.75, .02, .33, 1);
+        #burger {
+            width: 40px;
+        }
+    }
+}
+
+.menu {
+    position: absolute;
+    width: 0px;
+    display: block;
+    transition: .5s cubic-bezier(.75, .02, .33, 1);
+    background-color: #01A2A6;
+    height: 100%;
+    ul {
+        padding-top: 180px;
+        li {
+            display: none;
+            transform: translateY(-40px);
+            opacity: 0;
+            text-align: center;
+            position: relative;
+            margin-bottom: 30px;
+            transition: .5s ease;
+            a {
+                font-size: 25px;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+
+.click {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: -20px;
+    z-index: 99;
+    cursor: pointer;
+    display: block;
+}
+
+#burger {
+    z-index: 1;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 100px;
+    margin-top: 15px;
+    display: block;
+    span {
+        position: relative;
+        display: block;
+        width: 40px;
+        height: 5.5px;
+        background-color: #fff;
+        border-radius: 10px;
+        background-size: cover;
+        transition: all .4s;
+        &:before,
+        &:after {
+            position: absolute;
+            background-color: #fff;
+            border-radius: 10px;
+            background-size: cover;
+            content: '';
+            width: 40px;
+            height: 5.5px;
+            transition: all .2s ease;
+        }
+        &:before {
+            top: -15px;
+        }
+        &:after {
+            top: 15px;
+        }
+    }
+}
+
+#burger.active {
+    span {
+        background: transparent;
+        transform: rotate(90deg);
+        &:before {
+            transform: rotate(45deg);
+            top: 0px;
+        }
+        &:after {
+            transform: rotate(-45deg);
+            top: 0px;
+        }
+    }
+}
+
+.menu_open {
+    .menu {
+        width: 400px;
+    }
+    .main_content {
+        transform: translateX(400px);
+    }
+    .button {
+        transform: translateX(130px);
+    }
+}
